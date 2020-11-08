@@ -48,7 +48,7 @@ export default function PetId({ data }) {
 
 export async function getServerSideProps(context) {
 
-    const res = await fetch(`http://localhost:3000/api/pets/${context.query.id}`)
+    const res = await fetch(`https://next-mongodb-bootstrap.vercel.app/api/pets/${context.query.id}`)
     const data = await res.json()
 
     return {
