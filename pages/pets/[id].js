@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { Form, Container } from 'react-bootstrap'
 
 export default function PetId({ data }) {
 
@@ -10,38 +11,33 @@ export default function PetId({ data }) {
     const handleChange = e => setform({ ...form, [e.target.name]: e.target.value })
 
     return (
-        <div>
+        <Container>
             { data.map((val) => {
-                return  <form key={val._id}> 
-                            <div>
-                                <label>
-                                    Nome:
-                                </label>
-                                <input
+                return  <Form>
+                            <Form.Group controlId="formGroupNome">
+                                <Form.Label>Nome</Form.Label>
+                                <Form.Control 
+                                    style={{ backgroundColor: '#343a40' }}
                                     type='text'
                                     placeholder=''
                                     name='nome'
                                     value={form.nome}
-                                    onChange={e => handleChange(e)}                                
-                                >
-                                </input>
-                            </div>
-                            <div>
-                                <label>
-                                    Estado de fome:
-                                </label>
-                                <input
+                                    onChange={e => handleChange(e)}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupFome">
+                                <Form.Label>Estado de fome:</Form.Label>
+                                <Form.Control 
                                     type='text'
                                     placeholder=''
-                                    name='fome'
-                                    value={form.fome}
-                                    onChange={e => handleChange(e)}                            
-                                >
-                                </input>
-                            </div>
-                        </form>
+                                    name='nome'
+                                    value={form.nome}
+                                    onChange={e => handleChange(e)}
+                                />
+                            </Form.Group>
+                        </Form>
             })}
-        </div>
+        </Container>
     )
 
 }
